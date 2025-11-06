@@ -338,13 +338,14 @@ footer p {
         text-align: center;
         max-width: 100%;
         gap: 20px;
+        position: relative; /* supaya margin-top foto bekerja */
     }
     
-    /* Foto pengurus inti */
     .leader-card .profile-pic {
         width: 120px !important;
         height: 150px !important;
         margin-top: 20px; /* turun sedikit */
+        position: relative;
     }
     
     .leader-card.small-card .profile-pic.small-pic {
@@ -366,52 +367,22 @@ footer p {
     /* Member Card (Anggota Divisi) */
     .member-card {
         width: 250px;
-        padding-top: 85px !important; /* ruang atas untuk foto */
-        padding-bottom: 50px !important; /* menambah tinggi card */
-        position: relative; /* pastikan posisi foto bisa diatur */
+        padding-top: 85px; /* ruang atas untuk foto */
+        padding-bottom: 60px; /* memperpanjang card biru */
+        position: relative; /* penting untuk foto absolute */
     }
 
     /* Foto anggota */
     .member-pic {
         width: 100px !important;
         height: 130px !important; 
-        top: 0px !important; /* turun ke posisi normal */
-        position: absolute; /* supaya bisa diatur pakai top */
-        left: 50%; /* tengah horizontal */
-        transform: translateX(-50%); /* tengah horizontal */
+        position: absolute;
+        top: 20px; /* turunkan foto ke posisi normal */
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     /* Tombol Musik di HP */
-    #toggleMuteButton {
-        padding: 8px 12px;
-        font-size: 0.9em;
-    }
-}
-        flex-basis: 100%;
-    }
-    
-    /* Container Scroll Horizontal (untuk Anggota/Member Card) */
-    .horizontal-scroll-container {
-        padding: 10px 20px;
-        /* Negatif margin untuk membuat scroll penuh layar */
-        margin: 0 -20px;
-    }
-    
-    /* Member Card (Anggota Divisi) */
-    .member-card {
-        width: 250px;
-        /* FINAL FIX: Padding diperbesar agar nama tidak tertutup foto di HP */
-        padding-top: 90px !important; 
-    }
-
-    .member-pic {
-        width: 100px !important; /* Override global fix untuk mobile */
-        height: 130px !important; 
-        /* FINAL FIX: Foto diturunkan sedikit agar tidak terlalu menjorok ke atas */
-        top: -40px !important; 
-    }
-
-    /* Tombol Musik di HP (jika ada) */
     #toggleMuteButton {
         padding: 8px 12px;
         font-size: 0.9em;
