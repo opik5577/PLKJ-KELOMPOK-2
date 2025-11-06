@@ -312,11 +312,10 @@ footer p {
     background-color: #e6c500;
 }
 
-/* --- Media Query untuk Responsif Mobile (FINAL) --- */
+/* --- Media Query untuk Responsif Mobile (FINAL FIX) --- */
 @media (max-width: 768px) {
     /* Umum */
     body {
-        /* Asumsi: jika body butuh padding top karena fixed header/nav bar */
         padding-top: 100px; 
     }
 
@@ -341,18 +340,53 @@ footer p {
         gap: 20px;
     }
     
-    /* Mengurangi ukuran foto di HP agar tidak terlalu besar */
+    /* Foto pengurus inti */
     .leader-card .profile-pic {
-        width: 250px !important; /* Override global fix untuk mobile */
-        height: 330px !important; 
+        width: 120px !important;
+        height: 150px !important;
+        margin-top: 20px; /* turun sedikit */
     }
     
     .leader-card.small-card .profile-pic.small-pic {
-        width: 250px !important;
-        height: 330px !important; 
+        width: 90px !important;
+        height: 120px !important;
+        margin-top: 15px; /* turun sedikit */
     }
 
     .leader-card.small-card {
+        flex-basis: 100%;
+    }
+    
+    /* Container Scroll Horizontal (untuk Anggota/Member Card) */
+    .horizontal-scroll-container {
+        padding: 10px 20px;
+        margin: 0 -20px;
+    }
+    
+    /* Member Card (Anggota Divisi) */
+    .member-card {
+        width: 250px;
+        padding-top: 85px !important; /* ruang atas untuk foto */
+        padding-bottom: 50px !important; /* menambah tinggi card */
+        position: relative; /* pastikan posisi foto bisa diatur */
+    }
+
+    /* Foto anggota */
+    .member-pic {
+        width: 100px !important;
+        height: 130px !important; 
+        top: 0px !important; /* turun ke posisi normal */
+        position: absolute; /* supaya bisa diatur pakai top */
+        left: 50%; /* tengah horizontal */
+        transform: translateX(-50%); /* tengah horizontal */
+    }
+
+    /* Tombol Musik di HP */
+    #toggleMuteButton {
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+}
         flex-basis: 100%;
     }
     
