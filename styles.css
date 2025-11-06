@@ -7,8 +7,6 @@
     --color-text-light: #FFFFFF;
 }
 
-/* --- HAPUS: @keyframes neon-blink-gold --- */
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -20,7 +18,7 @@ body {
     background-color: var(--color-background);
     color: var(--color-text-dark);
     line-height: 1.6;
-    padding-top: 75px; /* Memberi ruang untuk header fixed */
+    padding-top: 75px; 
 }
 
 .container {
@@ -36,7 +34,6 @@ h2 {
     color: var(--color-primary);
     text-align: center;
     margin-bottom: 40px;
-    /* Efek Neon Dihapus */
     text-shadow: none; 
     animation: none; 
 }
@@ -60,8 +57,7 @@ header {
 header .logo {
     font-size: 1.5em;
     font-weight: 600;
-    color: var(--color-text-light); /* Warna normal */
-    /* Efek Neon Dihapus */
+    color: var(--color-text-light); 
     text-shadow: none; 
     animation: none; 
 }
@@ -114,7 +110,7 @@ nav a:hover {
     height: 150px;
     border-radius: 5px; 
     object-fit: cover;
-    border: none; /* Bingkai Dihapus */
+    border: none; 
     box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
     flex-shrink: 0;
 }
@@ -197,7 +193,8 @@ nav a:hover {
     width: 280px; 
     background: #FFFFFF;
     padding: 20px;
-    padding-top: 70px; /* Ruang untuk foto yang keluar */
+    /* --- PERBAIKAN: Padding diperbesar menjadi 90px --- */
+    padding-top: 90px; 
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     text-align: center;
@@ -215,8 +212,7 @@ nav a:hover {
     height: 130px; 
     border-radius: 3px; 
     object-fit: cover;
-    border: none; /* Bingkai Dihapus */
-    
+    border: none; 
     /* KODE POP-OUT: Foto keluar dari card */
     position: absolute; 
     top: -55px;         
@@ -229,7 +225,8 @@ nav a:hover {
 
 .member-card h4 {
     color: var(--color-text-dark);
-    margin-top: 5px; 
+    /* --- PERBAIKAN: Margin diperbesar menjadi 10px --- */
+    margin-top: 10px; 
     margin-bottom: 5px;
 }
 
@@ -340,7 +337,7 @@ footer p {
     
     .member-card {
         width: 250px;
-        padding-top: 60px;
+        padding-top: 75px; /* Disesuaikan untuk mobile */
     }
 
     .member-pic {
