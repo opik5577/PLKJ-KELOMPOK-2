@@ -106,8 +106,8 @@ nav a:hover {
 }
 
 .leader-card .profile-pic {
-    width: 150px;
-    height: 150px;
+    width: 250px;
+    height: 330px;
     border-radius: 5px; 
     object-fit: cover;
     border: none; 
@@ -136,8 +136,8 @@ nav a:hover {
 }
 
 .small-card .profile-pic.small-pic {
-    width: 90px;
-    height: 120px; 
+    width: 250px;
+    height: 330px; 
     border-radius: 3px; 
     box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
     margin: 0 auto 10px;
@@ -228,26 +228,26 @@ nav a:hover {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
+.member-card {
+    padding-top: 130px;
+}
+
 .member-pic {
-    width: 100px;
-    height: 130px; 
-    border-radius: 3px; 
+    width: 150px;
+    height: 200px;
     object-fit: cover;
-    border: none; 
-    
-    /* KODE POP-OUT: Foto keluar dari card */
-    position: absolute; 
-    top: -55px;         
-    left: 50%;          
-    transform: translateX(-50%); 
-    z-index: 1;         
-    box-shadow: 0 8px 15px rgba(0,0,0,0.2); 
+    object-position: top;  
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 8px;
 }
 
 
 .member-card h4 {
     color: var(--color-text-dark);
-    margin-top: 10px; 
+    margin-top: 100px; 
     margin-bottom: 5px;
 }
 
@@ -374,4 +374,30 @@ footer p {
         padding: 8px 12px;
         font-size: 0.9em;
     }
+    /* === GLOBAL FIX: Samakan ukuran semua foto Leader + Member === */
+
+.profile-pic,
+.profile-pic.small-pic,
+.member-pic {
+    width: 250px !important;
+    height: 330px !important;
+    object-fit: cover !important;
+    object-position: top !important; /* fokus kepala + dada */
+    border-radius: 12px !important;
+}
+
+/* FIX posisi foto di member-card biar naik dan tidak ketutup */
+.member-card {
+    padding-top: 120px !important;
+}
+
+.member-pic {
+    top: -70px !important;
+}
+
+/* FIX leader-card supaya ukuran foto ikut stabil */
+.leader-card .profile-pic {
+    width: 250px !important;
+    height: 330px !important;
+}
 }
