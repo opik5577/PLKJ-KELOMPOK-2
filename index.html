@@ -9,8 +9,8 @@
 </head>
 <body>
 
-    <header>
-        <div class="logo">PLKJ KELOMPOK 2</div>
+    <header id="mainHeader">
+        <div class="logo">PROYEK PKL ELITE</div>
         <nav>
             <a href="#ketua">Pengurus Inti</a>
             <a href="#humas">Humas</a>
@@ -29,7 +29,7 @@
                 <div class="details">
                     <h3>Ust. Yadi Paisal</h3>
                     <p class="role">Pembimbing Utama</p>
-                    <p>Memberikan arahan spiritual dan akademis dalam pelaksanaan proyek. Makanan favoritnya adalah **Gulai Kambing**.</p>
+                    <p>Memberikan arahan spiritual dan akademis. Makanan favoritnya adalah **Gulai Kambing**.</p>
                 </div>
             </div>
             
@@ -38,7 +38,7 @@
                 <div class="details">
                     <h3>Sabil</h3>
                     <p class="role">Ketua Proyek</p>
-                    <p>Pemimpin yang visioner, bertanggung jawab penuh atas koordinasi dan keberhasilan seluruh program. Makanan favoritnya adalah **Nasi Padang**.</p>
+                    <p>Pemimpin yang visioner, bertanggung jawab penuh. Makanan favoritnya adalah **Nasi Padang**.</p>
                 </div>
             </div>
             
@@ -144,6 +144,28 @@
             </div>
         </div>
     </footer>
+    
+    <script>
+        var prevScrollpos = window.pageYOffset;
+        var header = document.getElementById("mainHeader");
+        
+        // Timeout penting agar JS mendapatkan tinggi header setelah CSS dimuat
+        setTimeout(function() {
+            var headerHeight = header.offsetHeight;
+            
+            window.onscroll = function() {
+                var currentScrollPos = window.pageYOffset;
 
+                if (prevScrollpos > currentScrollPos || currentScrollPos < headerHeight) {
+                    // Scroll Up ATAU masih di bagian paling atas: Tampilkan header
+                    header.style.top = "0";
+                } else {
+                    // Scroll Down: Sembunyikan header dengan mendorongnya ke atas
+                    header.style.top = "-" + headerHeight + "px"; 
+                }
+                prevScrollpos = currentScrollPos;
+            }
+        }, 100); // Tunggu 100ms untuk memastikan tinggi header terhitung
+    </script>
 </body>
 </html>
