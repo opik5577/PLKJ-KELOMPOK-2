@@ -153,6 +153,28 @@ nav a:hover {
     border-radius: 5px;
 }
 
+/* --- Gaya untuk Tombol Musik --- */
+#toggleMuteButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--color-secondary); /* Emas */
+    color: var(--color-primary); /* Navy */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 101; 
+    transition: background-color 0.3s;
+}
+
+#toggleMuteButton:hover {
+    background-color: #e6c500; 
+}
+
+
 /* --- Bagian Tim (Horizontal Scroll) dengan Efek Pop-Out --- */
 .team-section {
     padding: 60px 0;
@@ -193,8 +215,7 @@ nav a:hover {
     width: 280px; 
     background: #FFFFFF;
     padding: 20px;
-    /* --- PERBAIKAN: Padding diperbesar menjadi 90px --- */
-    padding-top: 90px; 
+    padding-top: 90px; /* Jarak atas untuk desktop (aman) */
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     text-align: center;
@@ -213,6 +234,7 @@ nav a:hover {
     border-radius: 3px; 
     object-fit: cover;
     border: none; 
+    
     /* KODE POP-OUT: Foto keluar dari card */
     position: absolute; 
     top: -55px;         
@@ -225,7 +247,6 @@ nav a:hover {
 
 .member-card h4 {
     color: var(--color-text-dark);
-    /* --- PERBAIKAN: Margin diperbesar menjadi 10px --- */
     margin-top: 10px; 
     margin-bottom: 5px;
 }
@@ -291,7 +312,7 @@ footer p {
     background-color: #e6c500;
 }
 
-/* --- Media Query untuk Responsif Mobile --- */
+/* --- Media Query untuk Responsif Mobile (FINAL) --- */
 @media (max-width: 768px) {
     body {
         padding-top: 100px; 
@@ -337,12 +358,20 @@ footer p {
     
     .member-card {
         width: 250px;
-        padding-top: 75px; /* Disesuaikan untuk mobile */
+        /* FINAL FIX: Padding diperbesar agar nama tidak tertutup foto di HP */
+        padding-top: 85px; 
     }
 
     .member-pic {
         width: 100px;
         height: 130px; 
-        top: -45px; 
+        /* FINAL FIX: Foto diturunkan sedikit agar tidak terlalu menjorok ke atas */
+        top: -40px; 
+    }
+
+    /* Tombol Musik di HP */
+    #toggleMuteButton {
+        padding: 8px 12px;
+        font-size: 0.9em;
     }
 }

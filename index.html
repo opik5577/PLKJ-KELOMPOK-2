@@ -9,8 +9,14 @@
 </head>
 <body>
 
+    <audio id="backgroundMusic" autoplay loop muted>
+        <source src="music/bground_music.mp3" type="audio/mp3"> 
+        Browser Anda tidak mendukung elemen audio.
+    </audio>
+    
+    <button id="toggleMuteButton">🔊 Nyalakan Musik</button>
     <header id="mainHeader">
-        <div class="logo">PLKJ KELOMPOK 2</div>
+        <div class="logo">PLKJ KELOMPOK</div>
         <nav>
             <a href="#ketua">Pengurus Inti</a>
             <a href="#humas">Humas</a>
@@ -146,10 +152,10 @@
     </footer>
     
     <script>
+        // 1. JS untuk Header Hide-on-Scroll
         var prevScrollpos = window.pageYOffset;
         var header = document.getElementById("mainHeader");
         
-        // Timeout penting agar JS mendapatkan tinggi header setelah CSS dimuat
         setTimeout(function() {
             var headerHeight = header.offsetHeight;
             
@@ -157,15 +163,48 @@
                 var currentScrollPos = window.pageYOffset;
 
                 if (prevScrollpos > currentScrollPos || currentScrollPos < headerHeight) {
-                    // Scroll Up ATAU masih di bagian paling atas: Tampilkan header
                     header.style.top = "0";
                 } else {
-                    // Scroll Down: Sembunyikan header dengan mendorongnya ke atas
                     header.style.top = "-" + headerHeight + "px"; 
                 }
                 prevScrollpos = currentScrollPos;
             }
         }, 100); 
+
+        
+        // 2. JS untuk Fungsi Toggle Mute Musik
+        const music = document.getElementById('backgroundMusic');
+        const muteButton = document.getElementById('toggleMuteButton');
+        let isMuted = true; 
+
+        // Fungsi yang akan dipanggil saat pengguna berinteraksi pertama kali
+        function handleUserInteraction() {
+            // Coba putar musik yang dimute
+            music.play().catch(error => {
+                console.log("Autoplay blocked, waiting for click to unmute.");
+            });
+            // Hapus event listener ini setelah dipanggil
+            document.removeEventListener('click', handleUserInteraction);
+            document.removeEventListener('keydown', handleUserInteraction);
+        }
+
+        // Tambahkan event listener untuk interaksi pertama pengguna (klik atau tekan tombol)
+        document.addEventListener('click', handleUserInteraction);
+        document.addEventListener('keydown', handleUserInteraction);
+
+        muteButton.addEventListener('click', (event) => {
+            event.stopPropagation(); // Mencegah klik tombol dianggap sebagai interaksi pertama
+            if (isMuted) {
+                music.muted = false;
+                muteButton.innerHTML = '🔇 Matikan Musik';
+                isMuted = false;
+            } else {
+                music.muted = true;
+                muteButton.innerHTML = '🔊 Nyalakan Musik';
+                isMuted = true;
+            }
+        });
+        
     </script>
 </body>
 </html>
