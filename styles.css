@@ -367,12 +367,12 @@ footer p {
     .member-card {
         width: 250px;
         /* FINAL FIX: Padding diperbesar agar nama tidak tertutup foto di HP */
-        padding-top: 85px !important; 
+        padding-top: 90px !important; 
     }
 
     .member-pic {
-        width: 150px !important; /* Override global fix untuk mobile */
-        height: 200px !important; 
+        width: 100px !important; /* Override global fix untuk mobile */
+        height: 130px !important; 
         /* FINAL FIX: Foto diturunkan sedikit agar tidak terlalu menjorok ke atas */
         top: -40px !important; 
     }
