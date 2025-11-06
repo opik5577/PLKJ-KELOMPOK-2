@@ -7,6 +7,8 @@
     --color-text-light: #FFFFFF;
 }
 
+/* --- HAPUS: @keyframes neon-blink-gold --- */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -18,8 +20,7 @@ body {
     background-color: var(--color-background);
     color: var(--color-text-dark);
     line-height: 1.6;
-    /* Tambahkan padding agar konten tidak tertutup header fixed */
-    padding-top: 75px; 
+    padding-top: 75px; /* Memberi ruang untuk header fixed */
 }
 
 .container {
@@ -35,9 +36,12 @@ h2 {
     color: var(--color-primary);
     text-align: center;
     margin-bottom: 40px;
+    /* Efek Neon Dihapus */
+    text-shadow: none; 
+    animation: none; 
 }
 
-/* --- Header / Navigasi (PENTING untuk fitur Sembunyi-Muncul) --- */
+/* --- Header / Navigasi (Fitur Sembunyi-Muncul) --- */
 header {
     background-color: var(--color-primary);
     color: var(--color-text-light);
@@ -45,21 +49,21 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
-    /* Kunci untuk membuat header bersembunyi */
     position: fixed; 
     width: 100%;     
     top: 0;          
     z-index: 100;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    
-    /* Efek halus saat bergerak */
     transition: top 0.3s ease-in-out; 
 }
 
 header .logo {
     font-size: 1.5em;
     font-weight: 600;
+    color: var(--color-text-light); /* Warna normal */
+    /* Efek Neon Dihapus */
+    text-shadow: none; 
+    animation: none; 
 }
 
 nav a {
@@ -108,9 +112,10 @@ nav a:hover {
 .leader-card .profile-pic {
     width: 150px;
     height: 150px;
-    border-radius: 50%;
+    border-radius: 5px; 
     object-fit: cover;
-    border: 5px solid var(--color-secondary);
+    border: none; /* Bingkai Dihapus */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
     flex-shrink: 0;
 }
 
@@ -136,7 +141,9 @@ nav a:hover {
 
 .small-card .profile-pic.small-pic {
     width: 90px;
-    height: 90px;
+    height: 120px; 
+    border-radius: 3px; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
     margin: 0 auto 10px;
 }
 .small-card .details {
@@ -150,7 +157,7 @@ nav a:hover {
     border-radius: 5px;
 }
 
-/* --- Bagian Tim (Horizontal Scroll) --- */
+/* --- Bagian Tim (Horizontal Scroll) dengan Efek Pop-Out --- */
 .team-section {
     padding: 60px 0;
 }
@@ -175,7 +182,7 @@ nav a:hover {
     -webkit-overflow-scrolling: touch; 
 }
 
-/* Scrollbar styling (agar terlihat lebih elegan) */
+/* Scrollbar styling */
 .horizontal-scroll-container::-webkit-scrollbar {
     height: 8px;
 }
@@ -190,10 +197,12 @@ nav a:hover {
     width: 280px; 
     background: #FFFFFF;
     padding: 20px;
+    padding-top: 70px; /* Ruang untuk foto yang keluar */
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     text-align: center;
     transition: transform 0.3s;
+    position: relative; 
 }
 
 .member-card:hover {
@@ -203,15 +212,24 @@ nav a:hover {
 
 .member-pic {
     width: 100px;
-    height: 100px;
-    border-radius: 50%;
+    height: 130px; 
+    border-radius: 3px; 
     object-fit: cover;
-    margin-bottom: 15px;
-    border: 3px solid var(--color-primary);
+    border: none; /* Bingkai Dihapus */
+    
+    /* KODE POP-OUT: Foto keluar dari card */
+    position: absolute; 
+    top: -55px;         
+    left: 50%;          
+    transform: translateX(-50%); 
+    z-index: 1;         
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2); 
 }
+
 
 .member-card h4 {
     color: var(--color-text-dark);
+    margin-top: 5px; 
     margin-bottom: 5px;
 }
 
@@ -227,7 +245,7 @@ nav a:hover {
     color: var(--color-text-light);
     transform: scale(1.05);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-    border: 1px solid var(--color-secondary);
+    border: 1px solid var(--color-secondary); 
 }
 
 .member-card.koordinator h4 {
@@ -235,7 +253,8 @@ nav a:hover {
 }
 
 .member-card.koordinator .member-pic {
-    border: 3px solid var(--color-secondary);
+    border: none;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3); 
 }
 
 .member-card.koordinator .fav-food, .member-card.koordinator .date-info {
@@ -278,7 +297,7 @@ footer p {
 /* --- Media Query untuk Responsif Mobile --- */
 @media (max-width: 768px) {
     body {
-        padding-top: 100px; /* Padding lebih besar untuk mobile karena header mungkin lebih tinggi */
+        padding-top: 100px; 
     }
 
     header {
@@ -302,7 +321,12 @@ footer p {
     
     .leader-card .profile-pic {
         width: 120px;
-        height: 120px;
+        height: 150px; 
+    }
+    
+    .leader-card.small-card .profile-pic.small-pic {
+        width: 90px;
+        height: 120px; 
     }
 
     .leader-card.small-card {
@@ -316,5 +340,12 @@ footer p {
     
     .member-card {
         width: 250px;
+        padding-top: 60px;
+    }
+
+    .member-pic {
+        width: 100px;
+        height: 130px; 
+        top: -45px; 
     }
 }
